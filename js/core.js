@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    prepareImages();
     youtubePlugin();
 });
 
@@ -13,9 +14,9 @@ function prepareYoutubeLinks(videoId){
         $("<a/>").attr("id", "thumbnail-link").attr("href", link).appendTo("#video-thumbnail");
         var image_height = 90 + 10; 
         $("#card-video").height(image_height);
-    
+
     //$("<img/>").attr("style", "padding:5px;").attr("id", "thumbnail").attr("src", json["data"]["thumbnail"]["sqDefault"]).appendTo("#thumbnail-link");
-    });
+});
 
 }
 
@@ -36,7 +37,7 @@ function youtubePlugin(){
             $('.card-video').hide();
         }
     });
-        
+
     $('.card-text:contains("youtube.com/#/watch")').each(function(i){
         var that = $(this);
         var txt = $(this).html();
@@ -108,3 +109,57 @@ function processViemo(){
         $(".thumbs").attr('src', data[0].thumbnail_large);
     });
 }
+
+function prepareImages(){
+    var txt = $(".card-text").html();
+    var image_link = txt.match(/(http:\/\/\S+(\.png|\.jpg|\.gif|\.jpeg|\.bmp))/g); // end up with ?v=oHg5SJYRHA0
+    if (image_link.length) {
+        if(image_link.length == 1){
+            prepareImageLinks(image_link);
+        }
+        else if(image_link.length == 2){
+        // show 2 card-images
+    }
+    else if(image_link.length >= 3){
+        // show 3 card-images
+    }
+    deleteImageLink(image_link);
+}
+else{
+    $('.card-image').hide();
+}
+}
+
+function prepareImageLinks(imagelink){
+    $("#card-thumbnail").attr("src",imagelink);
+}
+
+function deleteImageLink(imageLink){
+    $("#card-text").replaceText(/(http:\/\/\S+(\.png|\.jpg|\.gif|\.jpeg|\.bmp))/g, "");
+}
+
+$.fn.replaceText = function( search, replace, text_only ) {
+    return this.each(function(){
+      var node = this.firstChild,
+        val,
+        new_val,
+        remove = [];
+      if ( node ) {
+        do {
+          if ( node.nodeType === 3 ) {
+            val = node.nodeValue;
+            new_val = val.replace( search, replace );
+            if ( new_val !== val ) {
+              if ( !text_only && /</.test( new_val ) ) {
+                $(node).before( new_val );
+                remove.push( node );
+              } else {
+                node.nodeValue = new_val;
+              }
+            }
+          }
+        } while ( node = node.nextSibling );
+      }
+      remove.length && $(remove).remove();
+    });
+};
