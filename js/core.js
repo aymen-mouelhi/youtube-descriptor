@@ -14,6 +14,7 @@ function prepareYoutubeLinks(videoId){
         $("<a/>").attr("id", "thumbnail-link").attr("href", link).appendTo("#video-thumbnail");
         var image_height = 90 + 10; 
         $("#card-video").height(image_height);
+        //alert($("#thumbnail").width());
 
     //$("<img/>").attr("style", "padding:5px;").attr("id", "thumbnail").attr("src", json["data"]["thumbnail"]["sqDefault"]).appendTo("#thumbnail-link");
 });
