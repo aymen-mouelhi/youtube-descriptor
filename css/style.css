@@ -89,7 +89,7 @@ background: none repeat scroll 0 0 #F3F4F7;
 	margin-bottom: 5px;
 }
 .card-video a {
-background: url("play.png") repeat scroll 0 0 transparent;
+background: url("../img/play.png") repeat scroll 0 0 transparent;
 bottom: 22px;
 display: block;
 height: 57px;

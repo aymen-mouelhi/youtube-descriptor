@@ -12,15 +12,64 @@ function prepareYoutubeLinks(videoId){
         //target="_blank"
         $("<img/>").attr("style", "padding:5px;").attr("id", "thumbnail").attr("src", json["data"]["thumbnail"]["sqDefault"]).appendTo("#video-thumbnail");
         $("<a/>").attr("id", "thumbnail-link").attr("href", link).appendTo("#video-thumbnail");
-        var image_height = 90 + 10; 
-        $("#card-video").height(image_height);
-        //alert($("#thumbnail").width());
+        var thumbnail_width = $(".card").width() - 30;
+        var max_width = 300;
+        if (thumbnail_width>max_width) {
+            thumbnail_width = max_width;
+        };
+        //$("#thumbnail").width('260px');
+        $("#thumbnail").width(thumbnail_width);
+        // card viead height
+        var image_height = $("#thumbnail").height() + 10;
 
-    //$("<img/>").attr("style", "padding:5px;").attr("id", "thumbnail").attr("src", json["data"]["thumbnail"]["sqDefault"]).appendTo("#thumbnail-link");
-});
+        //$("#card-video").height(image_height);
+        
+        $("#card-video").height(thumbnail_width);
+        $("#card-video").width(thumbnail_width+10);
+        adapt_play_button();
+        
+        /*
+        if ($("#video-thumbnail").complete) {
+            $("#card-video").height(thumbnail_width);
+            $("#card-video").width(thumbnail_width+10);
+            alert('hello');
+            adapt_play_button();
+        };
+        */
+
+        //$("<img/>").attr("style", "padding:5px;").attr("id", "thumbnail").attr("src", json["data"]["thumbnail"]["sqDefault"]).appendTo("#thumbnail-link");
+    });
 
 }
 
+function adapt_play_button(){
+ //get the width of the parent  
+    //var parent_height = $('#thumbnail-link').parent().height();
+    // var parent_height = $('#thumbnail').height();
+    // alert(parent_height);
+    // //get the width of the image  
+    // var image_height = $('#thumbnail-link').height();  
+    // alert(image_height);
+    // //calculate how far from top the image should be  
+    // var top_margin = (parent_height - image_height)/2;  
+    // //and change the margin-top css attribute of the image  
+    // $('#thumbnail-link').css( 'margin-top' , top_margin);  
+
+   var cx = $("#thumbnail").width() / 2;
+   cy = cx - 20;
+   //If you want center coordinates relative to the document
+   /*
+   var pos = $("#thumbnail").offset();
+   cx += pos.left;
+   cy += pos.top;
+   */
+
+   $('#thumbnail-link').css( 'bottom' , cx);
+   $('#thumbnail-link').css( 'left' , cy);
+   //$('#thumbnail-link').bottom(cy);
+   //$('#thumbnail-link').left(cx);
+
+}
 function youtubePlugin(){
     // card-text
     $('.card-text:contains("youtube.com/watch")').each(function(i){
@@ -142,9 +191,9 @@ function deleteImageLink(imageLink){
 $.fn.replaceText = function( search, replace, text_only ) {
     return this.each(function(){
       var node = this.firstChild,
-        val,
-        new_val,
-        remove = [];
+      val,
+      new_val,
+      remove = [];
       if ( node ) {
         do {
           if ( node.nodeType === 3 ) {
@@ -154,13 +203,13 @@ $.fn.replaceText = function( search, replace, text_only ) {
               if ( !text_only && /</.test( new_val ) ) {
                 $(node).before( new_val );
                 remove.push( node );
-              } else {
+            } else {
                 node.nodeValue = new_val;
-              }
             }
-          }
-        } while ( node = node.nextSibling );
-      }
-      remove.length && $(remove).remove();
-    });
+        }
+    }
+} while ( node = node.nextSibling );
+}
+remove.length && $(remove).remove();
+});
 };

@@ -28,42 +28,36 @@
 				<div class="card-image">
 					<img id= "card-thumbnail" style="-moz-border-radius: 4px;border-radius: 4px;max-width:306px;" />
 				</div>
+				<!-- new way to show card video-->
 				<div id="card-video" class="card-video">
-					<div class="video-thumbnail" id="video-thumbnail">
+					<div class="video-thumbnail" id="video-thumbnail" style="-moz-border-radius: 4px;border-radius: 4px;max-width:306px;">
 					</div>
-			<!--
-            <div class="video-info">
-              <div class="video-name" id="video-name">
-				Gotye - Somebody that I used to know
-              </div>
-              <span class="source" id="source">Youtube</span>
-            </div>
-        -->
-        <div >
-        	<div id="video-name">
-        		Gotye - Somebody that I used to know
-        	</div>
-        	<span id="source">Youtube</span>
-        </div>
-    </div>
-    <div class="time">7:15pm - <span class="date">25 Juin 2012</span></div>
-    <div class="tweet-actions">
-    	<div onclick="return false;" class="tweet-action reply-action" action="reply">
-    		<i class="icon reply-icon"></i>
-    	</div>
-    	<div onclick="return false;" class="tweet-action retweet-action" action="retweet">
-    		<i class="icon retweet-icon"></i>
-    		<i class="icon unretweet-icon"></i>
-    	</div>
-    	<div onclick="return false;" class="tweet-action favorite-action" action="favorite">
-    		<i class="icon fav-icon"></i>
-    		<i class="icon unfav-icon"></i>
-    	</div>
-    </div>
-</div>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/core.js"></script>
-</body>
-</link>
+					<div >
+						<div id="video-name">
+							Gotye - Somebody that I used to know
+						</div>
+						<span id="source">Youtube</span>
+					</div>
+				</div>
+				<!-- end of the new way -->
+				<div class="time">7:15pm - <span class="date">25 Juin 2012</span></div>
+				<div class="tweet-actions">
+					<div onclick="return false;" class="tweet-action reply-action" action="reply">
+						<i class="icon reply-icon"></i>
+					</div>
+					<div onclick="return false;" class="tweet-action retweet-action" action="retweet">
+						<i class="icon retweet-icon"></i>
+						<i class="icon unretweet-icon"></i>
+					</div>
+					<div onclick="return false;" class="tweet-action favorite-action" action="favorite">
+						<i class="icon fav-icon"></i>
+						<i class="icon unfav-icon"></i>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript" src="js/jquery.js"></script>
+			<script type="text/javascript" src="js/core.js"></script>
+		</body>
+	</link>
 </head>
 </html>
