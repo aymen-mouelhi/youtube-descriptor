@@ -66,10 +66,8 @@ function adapt_play_button(){
 
    $('#thumbnail-link').css( 'bottom' , cx);
    $('#thumbnail-link').css( 'left' , cy);
-   //$('#thumbnail-link').bottom(cy);
-   //$('#thumbnail-link').left(cx);
-
 }
+
 function youtubePlugin(){
     // card-text
     $('.card-text:contains("youtube.com/watch")').each(function(i){

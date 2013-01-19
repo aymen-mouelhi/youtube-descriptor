@@ -32,7 +32,7 @@
 				<div id="card-video" class="card-video">
 					<div class="video-thumbnail" id="video-thumbnail" style="-moz-border-radius: 4px;border-radius: 4px;max-width:306px;">
 					</div>
-					<div >
+					<div style="padding-left:10px;">
 						<div id="video-name">
 							Gotye - Somebody that I used to know
 						</div>
